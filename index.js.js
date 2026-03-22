@@ -27,7 +27,7 @@ client.on('messageCreate', async (message) => {
     const args = message.content.slice(PREFIX.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if (command === "move") {
+   	if(command === "move") {
         if (!message.member.roles.cache.some(r => r.name === STAFF_ROLE_NAME)) {
             return message.reply("❌ Tu n'as pas la permission pour déplacer des membres.");
         }
