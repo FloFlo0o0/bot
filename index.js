@@ -15,6 +15,27 @@ const client = new Client({
     ]
 });
 
+// ===== EXPRESS (pour Replit / UptimeRobot) =====
+const app = express();
+
+app.get("/", (req, res) => {
+    res.send("Bot is alive ✅");
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`🌐 Server running on port ${PORT}`));
+
+// ===== DISCORD CLIENT =====
+const client = new Client({
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildVoiceStates,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent
+    ]
+});
+
+
 client.once('ready', () => {
     console.log(`✅ Connecté en tant que ${client.user.tag}`);
 });
